@@ -5,6 +5,8 @@ pool:
   vmImage: 'ubuntu-latest'  # Máquina virtual que será usada
 
 steps:
+  - checkout: self
+
   - script: |
       curl -s https://packagecloud.io/install/repositories/loadimpact/k6/script.deb.sh | sudo bash
       sudo apt-get install k6 -y
