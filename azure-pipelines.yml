@@ -1,0 +1,14 @@
+trigger:
+  - main  # Define o branch que acionará o pipeline
+
+pool:
+  vmImage: 'ubuntu-latest'  # Máquina virtual que será usada
+
+steps:
+  - script: |
+      curl -s https://packagecloud.io/install/repositories/loadimpact/k6/script.deb.sh | sudo bash
+      sudo apt-get install k6 -y
+    displayName: 'Instalar K6'
+
+  - script: k6 run performance-test.js
+    displayName: 'Executar Teste de Performance'
