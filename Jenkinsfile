@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { image 'grafana/k6' }
     }
-        environment {
+    environment {
         SLACK_CHANNEL = 'jenkins-notifications'
         SLACK_TOKEN = 'slack-token'
         RESULTS_DIR = 'results'
